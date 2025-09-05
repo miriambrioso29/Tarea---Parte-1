@@ -1,4 +1,4 @@
-/* 1. Reset y tipografía */
+/* 1. Reset y tipografía base */
 body {
   font-family: "Segoe UI", sans-serif;
   background-color: #f5f3ff;
@@ -8,27 +8,42 @@ body {
   line-height: 1.6;
 }
 
-/* 2. Encabezado con celeste pastel */
+/* 2. ENCABEZADO con imagen de fondo oscura y superposición */
 .header {
-  background-color: #cce3f6;
-  color: #1b2a3a;
-  padding: 2rem 1rem;
+  position: relative;
+  background-image: url("https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  color: white;
   text-align: center;
+  padding: 3rem 1rem;
+  z-index: 1;
+  overflow: hidden;
 }
 
-.nombre {
-  font-size: 2.4rem;
-  margin-bottom: 0.5rem;
+/* Superposición oscura para mejorar contraste del texto */
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* MÁS OPACO */
+  z-index: -1;
 }
 
+/* Texto en header: blanco y con sombra para visibilidad */
+.nombre,
 .descripcion,
 .objetivo {
-  font-size: 1.1rem;
-  margin: 0.3rem 0;
-  color: #2d3f4e;
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* 3. Contenido principal */
+/* 3. CONTENIDO PRINCIPAL */
 .contenido {
   padding: 2rem;
   max-width: 960px;
@@ -55,7 +70,7 @@ body {
   color: #444444;
 }
 
-/* 4. Chips de tecnologías (UN SOLO COLOR BONITO) */
+/* 4. CHIPS DE TECNOLOGÍAS (un solo color bonito) */
 .tech-list {
   list-style: none;
   padding: 0;
@@ -80,7 +95,7 @@ body {
   cursor: default;
 }
 
-/* 5. Footer bonito */
+/* 5. PIE DE PÁGINA bonito */
 .footer {
   background-color: #e6ecf8;
   text-align: center;
@@ -95,7 +110,7 @@ body {
   margin-right: 6px;
 }
 
-/* 6. Responsive para pantallas grandes */
+/* 6. RESPONSIVE para pantallas más grandes */
 @media (min-width: 768px) {
   .nombre {
     font-size: 2.8rem;
